@@ -89,7 +89,10 @@ def main() -> None:
         with connection.cursor() as cursor:
             for row in rows:
                 player_id = row.get("player_id")
-                team = row.get("team")
+                # Season-summary files use recent_team; older/weekly nflverse
+                # files use team. Accept both so the importer survives either
+                # source format.
+                team = row.get("recent_team") or row.get("team")
                 if not player_id or not team:
                     continue
                 cursor.execute(player_sql, (

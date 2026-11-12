@@ -80,6 +80,9 @@ By default only quarterbacks are imported, which keeps the MVP small. Add
 `--all-positions` when the group is ready for RB/WR comparisons. Re-running the
 command updates existing rows instead of duplicating them.
 
+The nflverse season-summary CSV currently names the player's team column
+`recent_team`. The importer also accepts the older `team` name for compatibility.
+
 ## Queries for the Flask API
 
 List quarterbacks for a season:
